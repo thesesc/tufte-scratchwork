@@ -1,0 +1,29 @@
+docs_list_title: Rakkety List
+docs:
+
+- title: Home
+  url: /
+
+- title: Projects
+  sublinks: 
+  
+  - title: Fiddle Camp
+    url: projects/fiddle-camp
+
+  - title: Niel Gow Sessions
+    url: projects/gow-sessions
+
+  - title: Journal of the SESC
+    url: projects/journal
+
+  - title: Chicago Reel Dancers
+    url: projects/reel-dancing
+
+- title: About
+  url: about
+
+- title: Donate
+  url: donate
+
+- title: Contact
+  url: contact
