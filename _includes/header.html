@@ -1,28 +1,39 @@
 <!--- Header and nav template site-wide -->
 <header>
-  <nav id="navbar" class="navbar navbar-default">
-    {% for link in site.data.navlist.docs %}
-      {% assign class = nil %} <!-- class doesn't do anything at the moment -->
-      {% if page.url contains link.url %}
-        {% assign class = 'active' %}
-      {% endif %}
-      {% if link.sublinks %}
-      <a href="{{ link.url | relative_url }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-        aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        {% for sublink in link.sublinks %}
-          {% if sublink.title == 'separator' %}
-            <li role="separator" class="divider"></li>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="/"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% for link in site.data.navlist.docs %}
+          {% assign class = nil %}
+          {% if page.url contains link.url %}
+            {% assign class = 'active' %}
+          {% endif %}
+          {% if link.sublinks %}
+          <li class="nav-item dropdown {{class}}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ link.title }}
+            </a>
+            <div class="dropdown-menu">
+              {% for sublink in link.sublinks %}
+                {% if sublink.title == 'separator' %}
+                  <div class="dropdown-divider">
+                {% else %}
+                  <a class="dropdown-item" href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </li>
           {% else %}
-            <li>
-              <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
-            </li>
+          <li class="nav-item {{class}}">
+            <a class="nav-link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+          </li>
           {% endif %}
         {% endfor %}
       </ul>
-      {% else %}
-        <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
+    </div>
   </nav>
 </header>
