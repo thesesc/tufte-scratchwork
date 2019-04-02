@@ -595,3 +595,9 @@ hr.slender {
   content: "\e60e";
 }
 /*-- End of Icomoon icon font section --*/
+
+// Custom CSS
+
+.form-control.limited-width {
+  max-width: 30em;
+}

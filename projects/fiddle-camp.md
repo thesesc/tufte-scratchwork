@@ -15,6 +15,8 @@ Details for the 2019 session will be announced shortly—enter your email below 
 
 <form action="https://formspree.io/tim@tsmacdonald.com" method="POST">
   <input type="hidden" name="subject" value="Interested in fiddle camp">
-  <input type="email" name="_replyto" placeholder="Enter your email...">
-  <input type="submit" value="Submit">
+  <div class="form-group">
+    <input type="email" name="_replyto" placeholder="Enter your email..." class="form-control limited-width" required>
+  </div>
+  <button type="submit" class="btn btn-outline-dark">Submit</button>
 </form>
